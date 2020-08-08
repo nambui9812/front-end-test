@@ -192,6 +192,10 @@ class Filters extends React.Component {
 
 				<button id="filter" onClick={() => this.handleFilter()}>Filter</button>
 
+				<div id="count">
+					Showing {this.state.data.length} records
+				</div>
+
 				<table id="result">
 					<tbody>
 						<tr>

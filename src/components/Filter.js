@@ -31,8 +31,8 @@ class Filter extends React.Component {
                 return (
                     <select className="operator" value={operator} onChange={(e) => this.onChangeOperator(e, index)}>
                         <option value=""></option>
-                        <option value="GTE">Greater or equal</option>
-                        <option value="LTE">Less or equal</option>  
+                        <option value="GTE">&#62;&#61;</option>
+                        <option value="LTE">&#60;&#61;</option>  
                     </select>
                 )
             }
