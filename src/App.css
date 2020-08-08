@@ -7,6 +7,7 @@
     grid-column: 2/3;
     padding: 10px;
     border: 2px solid rgb(226, 226, 226);
+    text-align: center;
 }
 
 .Filter {
@@ -41,4 +42,48 @@
     padding: 5px;
     width: 150px;
     margin-right: 10px;
+}
+
+#filter {
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #9be29e;
+    margin-top: 20px;
+    transition-duration: 0.4s;
+    font-size: large;
+}
+
+#filter:hover {
+    cursor: pointer;
+    background-color: #9be29e;
+    color: white;
+}
+
+#result {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 40px;
+}
+
+#result td, #result th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#result tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#result tr:hover {
+    background-color: #ddd;
+}
+
+#result th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
 }
