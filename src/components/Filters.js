@@ -42,11 +42,69 @@ class Filters extends React.Component {
 		}
 	}
 
+	updateId = (value, index) => {
+		this.setState(state => {
+			const newConditions = state.conditions.map((condition, i) => {
+				if (index === i) {
+					condition.id = value;
+					condition.operator = '';
+					condition.value= '';
+					return condition;
+				}
+				else {
+					return condition;
+				}
+			});
+
+			return {
+				conditions: newConditions
+			};
+		});
+	};
+
+	updateOperator = (value, index) => {
+		this.setState(state => {
+			const newConditions = state.conditions.map((condition, i) => {
+				if (index === i) {
+					condition.operator = value;
+					condition.value = '';
+					return condition;
+				}
+				else {
+					return condition;
+				}
+			});
+
+			return {
+				conditions: newConditions
+			};
+		});
+	}
+
+	updateValue = (value, index) => {
+		this.setState(state => {
+			const newConditions = state.conditions.map((condition, i) => {
+				if (index === i) {
+					condition.value = value;
+					return condition;
+				}
+				else {
+					return condition;
+				}
+			});
+
+			return {
+				conditions: newConditions
+			};
+		});
+	}
+
 	render() {
+		console.log(this.state.conditions);
 		return (
 			<div className="Filters">
 				{this.state.conditions.map((condition, index) => (
-					<Filter key={index} index={index} filter={condition} />
+					<Filter key={index} index={index} filter={condition} updateId={this.updateId} updateOperator={this.updateOperator} updateValue={this.updateValue} />
 				))}		
 
 				<div className="add-filter" onClick={() => this.handleAddFilter()}>

@@ -1,6 +1,6 @@
 .App {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 100px auto 100px;
 }
 
 .Filters {
@@ -18,4 +18,27 @@
     cursor: pointer;
     padding: 20px;
     border: 2px solid rgb(226, 226, 226);
+}
+
+.Filter label {
+    display: inline-block;
+    width: 80px;
+}
+
+.id {
+    padding: 5px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.operator {
+    padding: 5px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.value {
+    padding: 5px;
+    width: 150px;
+    margin-right: 10px;
 }
