@@ -16,7 +16,7 @@ class Filter extends React.Component {
 
     render() {
         const { index, filter } = this.props;
-        const { preText, id, operator, value } = filter;
+        const { id, operator, value } = filter;
 
         const renderOperator = () => {
             if (id === "name" || id === "screen_name" || id === "location") {
@@ -82,7 +82,7 @@ class Filter extends React.Component {
 
         return (
             <div className="Filter">
-                <label>{preText}  </label>
+                <label>{index === 0 ? "Where" : "And"}</label>
                 <select className="id" value={id} onChange={(e) => this.onChangeId(e, index)}>
                     <option value=""></option>
                     <option value="name">Name</option>
@@ -93,6 +93,7 @@ class Filter extends React.Component {
                 </select>
                 {renderOperator()}
                 {renderValue()}
+                <button className="delete" onClick={() => this.props.deleteCondition(index)}>X</button>
             </div>
         )
     }

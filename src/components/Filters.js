@@ -12,34 +12,15 @@ class Filters extends React.Component {
 	}
 
 	handleAddFilter = () => {
-		// First filter
-		if (this.state.conditions.length === 0) {
+		let newCondition = {
+			id: '',
+			operator: '',
+			value: ''
+		};
 
-			let newCondition = {
-				preText: 'Where',
-				id: '',
-				operator: '',
-				value: ''
-			};
-
-			this.setState(state => ({
-				conditions: state.conditions.concat(newCondition)
-			}));
-		}
-		// More filter
-		else {
-
-			let newCondition = {
-				preText: 'And',
-				id: '',
-				operator: '',
-				value: ''
-			};
-			
-			this.setState(state => ({
-				conditions: state.conditions.concat(newCondition)
-			}));
-		}
+		this.setState(state => ({
+			conditions: state.conditions.concat(newCondition)
+		}));
 	}
 
 	updateId = (value, index) => {
@@ -60,7 +41,7 @@ class Filters extends React.Component {
 				conditions: newConditions
 			};
 		});
-	};
+	}
 
 	updateOperator = (value, index) => {
 		this.setState(state => {
@@ -99,12 +80,18 @@ class Filters extends React.Component {
 		});
 	}
 
+	deleteCondition = (index) => {
+		this.setState(state => ({
+			conditions: state.conditions.filter((condition, i) => index !== i)
+		}));
+	}
+
 	render() {
 		console.log(this.state.conditions);
 		return (
 			<div className="Filters">
 				{this.state.conditions.map((condition, index) => (
-					<Filter key={index} index={index} filter={condition} updateId={this.updateId} updateOperator={this.updateOperator} updateValue={this.updateValue} />
+					<Filter key={index} index={index} filter={condition} updateId={this.updateId} updateOperator={this.updateOperator} updateValue={this.updateValue} deleteCondition={this.deleteCondition} />
 				))}		
 
 				<div className="add-filter" onClick={() => this.handleAddFilter()}>
